@@ -370,29 +370,36 @@
         }
 
         .date-card {
-            display: inline-block;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border: 2px solid var(--accent-blue);
-            border-radius: 15px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(12px) saturate(150%);
+            border: 1px solid rgba(0, 234, 255, 0.4);
+            border-radius: 1rem;
             padding: 1.5rem 2.5rem;
-            margin: 2rem 0;
-            backdrop-filter: blur(10px);
+            text-align: center;
+            width: fit-content;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 234, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .date-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 234, 255, 0.4);
         }
 
         .date-card .label {
-            font-size: 0.9rem;
-            color: var(--accent-cyan);
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            color: #00eaff;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
         }
 
         .date-card .dates {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 900;
-            color: var(--text-light);
-            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(0, 234, 255, 0.3);
         }
 
         /* ==========================================
@@ -1731,38 +1738,134 @@
 
             <div class="gallery-container">
                 <div class="slide active">
-                    <img src="gallery-1.jpg" alt="Anvakrit 2024 - Photo 1" style="display: none;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="slide-placeholder">
-                        📸 Crime Scene Investigation<br><br>
-                        <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-1.jpg)</span>
-                    </div>
+                    <img src="photos/gallery-1.jpg" alt="Anvakrit 2024 - Photo 1" >
+                    <div class="slide-placeholder"></div>
                 </div>
+
                 <div class="slide">
-                    <img src="gallery-2.jpg" alt="Anvakrit 2024 - Photo 2" style="display: none;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="slide-placeholder">
                         📸 Forensic Analysis in Action<br><br>
-                        <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                     <img src="photos/gallery-2.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
                     </div>
                 </div>
-                <div class="slide">
-                    <img src="gallery-3.jpg" alt="Anvakrit 2024 - Photo 3" style="display: none;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                 <div class="slide">
                     <div class="slide-placeholder">
-                        📸 Team Collaboration<br><br>
-                        <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-3.jpg)</span>
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-3.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
                     </div>
                 </div>
-                <div class="slide">
-                    <img src="gallery-4.jpg" alt="Anvakrit 2024 - Photo 4" style="display: none;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                 <div class="slide">
                     <div class="slide-placeholder">
-                        📸 Laboratory Investigation<br><br>
-                        <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-4.jpg)</span>
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-4.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
                     </div>
                 </div>
-                <div class="slide">
-                    <img src="gallery-5.jpg" alt="Anvakrit 2024 - Photo 5" style="display: none;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                 <div class="slide">
                     <div class="slide-placeholder">
-                        📸 Award Ceremony<br><br>
-                        <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-5.jpg)</span>
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-5.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-6.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-7.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-8.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-9.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-10.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-11.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-12.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-13.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-14.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-15.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-16.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-17.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-18.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slide-placeholder">
+                        📸 Forensic Analysis in Action<br><br>
+                     <img src="photos/gallery-19.jpg" alt="Anvakrit 2024 - Photo 2" >
+                       <span style="font-size: 0.85rem; opacity: 0.7;">(Image placeholder - Replace with gallery-2.jpg)</span>
                     </div>
                 </div>
 
