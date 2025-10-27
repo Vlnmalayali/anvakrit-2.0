@@ -39,6 +39,7 @@
             color: rgb(29, 27, 27);
             overflow-x: hidden;
             line-height: 1.6;
+            margin: 0%;
         }
 
         
@@ -49,7 +50,7 @@
         /* Alert Bar - Compact Mobile Design */
         .alert-bar {
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-            padding: 0.5rem;
+            
             text-align: center;
             font-weight: 600;
             font-size: 0.75rem;
@@ -64,13 +65,13 @@
 
         /* NFSU Logo - Compact Mobile */
         .nfsu-logo {
-            position: fixed;
-            top: 0%;
+            position: absolute;
+            top: 10px;
             left: 10px;
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.922);
             padding: 0.1rem;
-            border-radius: 6px;
+            border-radius: 1px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
@@ -83,9 +84,9 @@
         /* Navigation - Hamburger Menu for Mobile */
         nav {
             position:static;
-            top: 30px;
+            top: 100%;
             width: 100%;
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(10, 10, 10, 0.971);
             backdrop-filter: blur(10px);
             z-index: 9998;
             border-bottom: 1px solid rgba(220, 38, 38, 0.3);
@@ -95,7 +96,7 @@
             display: block;
             position: absolute;
             right: 15px;
-            top: 0px;
+            top: -30px;
             transform: translateY(-50%);
             background: transparent;
             border: 2px solid var(--accent-cyan);
@@ -283,6 +284,7 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.9) 100%);
+            padding: 0 4rem 4rem 4rem; /* no top padding */
         }
 
         .hero::before {
@@ -868,7 +870,7 @@
 
         @media (max-width: 767px) {
             .hero {
-                padding-top: 1rem;
+                padding-top: 0rem;
                 min-height: auto;
             }
 
@@ -968,7 +970,7 @@
 
             /* NFSU Logo - Smaller */
             .nfsu-logo {
-                top: 0px !important;
+                top: -23px !important;
                 left: 8px !important;
                 padding: 0.1rem !important;
                 border-radius: 4px !important;
