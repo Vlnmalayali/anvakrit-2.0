@@ -1,2106 +1,730 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anvakrit 2.0 - Unmask the Truth in Bytes | NFSU</title>
-    <link rel="preload" href="https://fonts.cdnfonts.com/css/samarkan" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.cdnfonts.com/css/samarkan"></noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-     <style>
-        /* ==========================================
-           BASE STYLES & VARIABLES
-        ========================================== */
+    <title>Anvakrit 2.0 - Loading</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Clean Professional Color Scheme */
+            --bg-black: #000000;
+            --bg-dark: #0a0f1a;
+            --bg-darker: #050810;
+            --blue-dark: #0d1b2a;
+            --blue-medium: #1b3a5f;
+            --blue-bright: #2563eb;
+            --neon-blue: #00d4ff;
+            --neon-glow: #00f0ff;
+            --white: #ffffff;
+            --white-dim: #e0e7ff;
+            --gray: #8892b0;
+            --shadow-blue: rgba(0, 212, 255, 0.3);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --primary-dark: #0a0a0a;
-            --secondary-dark: #0e0f17;
-            --accent-blue: #554edf;
-            --accent-cyan: #44e1ef;
-            --accent-purple: #6d0f9f;
-            --text-light: #e2e8f0;
-            --text-gray: #c9cdd1;
-            --border-color: #8b8b8b;
-            --highlight-yellow: #dcbe26;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background:linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
-            color: rgb(29, 27, 27);
-            overflow-x: hidden;
-            line-height: 1.6;
-            margin: 0%;
-        }
-
-        
-        /* ==========================================
-           MOBILE-FIRST NAVIGATION & HEADER
-        ========================================== */
-
-        /* Alert Bar - Compact Mobile Design */
-        .alert-bar {
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-            
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.75rem;
-            letter-spacing: 0.3px;
-            position:static;
-            top: 0;
-            width: 100%;
-            z-index: 10000;
-            box-shadow: 0 2px 10px rgba(9, 2, 23, 0.987);
-            line-height: 1.3;
-        }
-
-        /* NFSU Logo - Compact Mobile */
-        .nfsu-logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.922);
-            padding: 0.1rem;
-            border-radius: 1px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.34);
-        }
-
-        .nfsu-logo img {
-            height: 15px;
-            width: auto;
-            display: block;
-        }
-
-        /* Navigation - Hamburger Menu for Mobile */
-        nav {
-            position:absolute;
-            top:0%;
-            width: 100%;
-            background: rgb(0, 1, 10);
-            backdrop-filter: blur(10px);
-            z-index: 9998;
-            border-bottom: 1px solid rgba(220, 38, 38, 0);
-        }
-
-        .nav-toggle {
-            display: block;
-            position: absolute;
-            right: 15px;
-            top: -30px;
-            transform: translateY(-50%);
-            background: transparent;
-            border: 2px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-            font-size: 1.2rem;
-            padding: 0.4rem 0.8rem;
-            cursor: pointer;
-            border-radius: 5px;
-            z-index: 10001;
-            transition: all 0.3s ease;
-        }
-
-        .nav-toggle::before {
-            content: '☰';
-        }
-
-        .nav-toggle.active::before {
-            content: '✕';
-        }
-
-        .nav-toggle.active {
-            background: var(--accent-cyan);
-            color: var(--primary-dark);
-        }
-
-        .nav-toggle:hover {
-            background: var(--accent-cyan);
-            color: var(--primary-dark);
-        }
-
-        nav ul {
-            list-style: none;
-            display: none;
-            flex-direction: column;
-            padding:0.5rem 0;
-            margin: 0;
-            gap: 0;
-        }
-
-        nav ul.active {
-            display: flex;
-        }
-
-        nav li {
-            width: 100%;
-            margin: 0;
-        }
-
-        nav a {
-            display: block;
-            padding: 0.75rem 1.5rem;
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        nav a:hover,
-        nav a.active {
-            background: rgba(220, 38, 38, 0.2);
-            color: var(--accent-cyan);
-            border-left-color: var(--accent-cyan);
-        }
-
-        nav a::after {
-            display: none;
-        }
-
-        /* ==========================================
-           TABLET & DESKTOP NAVIGATION (768px+)
-        ========================================== */
-
-        @media (min-width: 768px) {
-            .alert-bar {
-                padding: 0rem;
-                font-size: 0.9rem;
-            }
-
-            .nfsu-logo {
-                top: 35px;
-                left: 20px;
-                padding: 0.rem;
-            }
-
-            .nfsu-logo img {
-                height: 50px;
-            }
-
-            .nav-toggle {
-                display: none;
-            }
-
-            nav {
-                top: 0px;
-                padding: 1rem 2rem;
-            }
-
-            nav ul {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 1.5rem;
-                padding: 0;
-            }
-
-            nav li {
-                width: auto;
-            }
-
-            nav a {
-                padding: 0.5rem 1rem;
-                font-size: 0.95rem;
-                font-weight: 600;
-                border-left: none;
-                position: relative;
-            }
-
-            nav a::after {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
-                transition: width 0.3s;
-            }
-
-            nav a:hover::after,
-            nav a.active::after {
-                width: 100%;
-            }
-
-            nav a:hover,
-            nav a.active {
-                background: transparent;
-                border-left: none;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            nav ul {
-                gap: 2rem;
-            }
-
-            nav a {
-                padding: 0.5rem 1.5rem;
-            }
-        }
-
-        /* ==========================================
-           CONTENT SECTIONS
-        ========================================== */
-
-        /* Tab Content */
-        .tab-content {
-            display: none;
-            padding-top: 50px;
-            min-height: 100vh;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        
-        @media (max-width: 767px) {
-            nav ul.active {
-                padding: 0.5rem 0 !important;
-            }
-            
-            .hero {
-                min-height: auto !important;
-                padding: 1rem 1.5rem 2rem 1.5rem !important;
-            }
-        }
-        /* ==========================================
-           HERO SECTION
-        ========================================== */
-
-        .hero {
-            min-height: auto;
-            padding: 0rem 4rem 4rem 4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--bg-black);
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.9) 100%);
-            
+            color: var(--white);
+            height: 100vh;
         }
 
-        .hero::before {
-            content: '';
+        /* ===========================================
+           LOADING SCREEN
+        =========================================== */
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-black) 0%, var(--bg-dark) 50%, var(--blue-dark) 100%);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease;
+        }
+
+        #loadingScreen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* ===========================================
+           ANIMATED BACKGROUND EFFECTS
+        =========================================== */
+        .bg-effects {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(ellipse at 30% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
+            overflow: hidden;
         }
 
-        @keyframes pulse {
+        /* Digital Grid */
+        .digital-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridScroll 30s linear infinite;
+        }
+
+        @keyframes gridScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        /* Glowing Orbs */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .glow-orb-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--neon-blue);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .glow-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--blue-bright);
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        .glow-orb-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--neon-glow);
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-50px, 50px) scale(0.9);
+            }
+        }
+
+        /* Scanning Line Effect */
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--neon-blue) 50%, 
+                transparent 100%);
+            box-shadow: 0 0 20px var(--shadow-blue);
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 5px var(--neon-blue);
+            animation: particleFloat 15s linear infinite;
+        }
+
+        .particle:nth-child(5) { left: 20%; animation-delay: 0s; }
+        .particle:nth-child(6) { left: 40%; animation-delay: 3s; }
+        .particle:nth-child(7) { left: 60%; animation-delay: 6s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 9s; }
+
+        @keyframes particleFloat {
+            0% {
+                bottom: -5%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                bottom: 105%;
+                opacity: 0;
+            }
+        }
+
+        /* ===========================================
+           MAIN CONTENT CONTAINER
+        =========================================== */
+        .loading-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            animation: contentFadeIn 1.5s ease;
+        }
+
+        @keyframes contentFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===========================================
+           LOGO SECTION
+        =========================================== */
+        .logo-section {
+            margin-bottom: 4rem;
+        }
+
+        .logo-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            position: relative;
+            display: inline-block;
+            text-shadow: 
+                0 0 20px var(--neon-blue),
+                0 0 40px var(--shadow-blue),
+                0 0 60px var(--shadow-blue);
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% {
+                text-shadow: 
+                    0 0 20px var(--neon-blue),
+                    0 0 40px var(--shadow-blue);
+            }
+            50% {
+                text-shadow: 
+                    0 0 30px var(--neon-glow),
+                    0 0 60px var(--shadow-blue),
+                    0 0 80px var(--shadow-blue);
+            }
+        }
+
+        .logo-version {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--neon-blue);
+            margin-top: 0.5rem;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px var(--shadow-blue);
+        }
+
+        .logo-underline {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--neon-blue) 50%, 
+                transparent 100%);
+            margin: 1rem auto;
+            box-shadow: 0 0 10px var(--shadow-blue);
+            animation: underlinePulse 2s ease infinite;
+        }
+
+        @keyframes underlinePulse {
             0%, 100% { opacity: 0.5; }
             50% { opacity: 1; }
         }
 
-        .hero-content {
+        /* ===========================================
+           ADVANCED HEXAGON LOADER
+        =========================================== */
+        .hexagon-loader {
+            width: 200px;
+            height: 200px;
             position: relative;
-            z-index: 2;
-            max-width: 1100px;
-            padding: 2rem;
+            margin: 0 auto 3rem;
         }
 
-        .event-badge {
-            display: inline-block;
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid var(--accent-blue);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 2rem;
-            color: var(--accent-cyan);
+        .hexagon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
-        .hero h1 {
-            
-            font-family: 'Samarkan', sans-serif;
-            font-size: 8rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ff0000 0%, #8e6161 50%, #ffffff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -2px;
-            line-height: 1.1;
-        }
-
-        .hero .subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-
-        .hero .tagline {
-            font-family: 'Space Mono', monospace;
-            font-size: 1rem;
-            font-style: italic;
-            margin-bottom: 3rem;
-            color: var(--highlight-yellow);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .date-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-            backdrop-filter: blur(12px) saturate(150%);
-            border: 1px solid rgba(0, 234, 255, 0.4);
-            border-radius: 1rem;
-            padding: 1.5rem 2.5rem;
-            text-align: center;
-            width: fit-content;
-            margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0, 234, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .date-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(0, 234, 255, 0.4);
-        }
-
-        .date-card .label {
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            color: #00eaff;
-            text-transform: uppercase;
-            margin-bottom: 0.6rem;
-        }
-
-        .date-card .dates {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #fff;
-            text-shadow: 0 0 8px rgba(0, 234, 255, 0.3);
-        }
-
-        /* ==========================================
-           SECTION STYLING
-        ========================================== */
-
-        section {
-            padding: 3rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            font-weight: 800;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
+        .hexagon::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
-            border-radius: 2px;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: 3px solid var(--neon-blue);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+            animation: hexSpin 3s linear infinite;
+            box-shadow: 
+                0 0 20px var(--shadow-blue),
+                inset 0 0 20px var(--shadow-blue);
         }
 
-        .section-subtitle {
-            color: var(--text-gray);
-            font-size: 1.1rem;
-            max-width: 700px;
+        @keyframes hexSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
         }
 
-        /* ==========================================
-           CARDS
-        ========================================== */
-
-        .info-card {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(10, 14, 39, 0.8) 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
+        /* Orbiting Dots */
+        .orbit-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            box-shadow: 0 0 15px var(--neon-blue);
         }
 
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        .orbit-dot:nth-child(1) {
+            animation: orbit 2s linear infinite;
         }
 
-        .info-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--accent-cyan);
+        .orbit-dot:nth-child(2) {
+            animation: orbit 2s linear infinite 0.5s;
+        }
+
+        .orbit-dot:nth-child(3) {
+            animation: orbit 2s linear infinite 1s;
+        }
+
+        .orbit-dot:nth-child(4) {
+            animation: orbit 2s linear infinite 1.5s;
+        }
+
+        @keyframes orbit {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) translateX(80px);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg) translateX(80px);
+            }
+        }
+
+        /* Center Pulse */
+        .center-pulse {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 0 20px var(--neon-blue),
+                0 0 40px var(--shadow-blue);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0.5;
+            }
+        }
+
+        /* ===========================================
+           LOADING TEXT
+        =========================================== */
+        .loading-title {
             font-size: 1.8rem;
-            margin-bottom: 1rem;
             font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            animation: titlePulse 2s ease infinite;
         }
 
-        .info-card p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-gray);
+        @keyframes titlePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
         }
 
-        /* Category Grid */
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .loading-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            font-style: italic;
+            letter-spacing: 1px;
         }
 
-        .category-card {
-            background: linear-gradient(135deg, rgb(6, 0, 43) 0%, rgb(0, 0, 0) 100%);
-            border: 2px solid var(--border-color);
-            border-radius: 15px;
-            padding: 2.5rem;
-            transition: all 0.3s;
+        /* Dynamic Status Text */
+        .status-text {
+            font-size: 1.1rem;
+            color: var(--neon-blue);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            min-height: 30px;
+            text-shadow: 0 0 10px var(--shadow-blue);
+            animation: textGlitch 5s ease infinite;
+        }
+
+        @keyframes textGlitch {
+            0%, 90%, 100% {
+                transform: translate(0);
+            }
+            92% {
+                transform: translate(-2px, 1px);
+            }
+            94% {
+                transform: translate(2px, -1px);
+            }
+            96% {
+                transform: translate(-1px, 2px);
+            }
+        }
+
+        /* ===========================================
+           PROGRESS BAR
+        =========================================== */
+        .progress-wrapper {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, 
+                var(--blue-bright) 0%, 
+                var(--neon-blue) 50%, 
+                var(--neon-glow) 100%);
+            border-radius: 10px;
+            box-shadow: 
+                0 0 20px var(--shadow-blue),
+                inset 0 0 10px rgba(255, 255, 255, 0.3);
+            transition: width 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .category-card::before {
+        .progress-bar::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.25);
-        }
-
-        .category-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--accent-cyan);
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .category-card .target {
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--accent-blue);
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-        }
-
-        .category-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-        }
-
-        .category-card .prize {
-            font-weight: 600;
-            color: var(--highlight-yellow);
-            font-size: 1.1rem;
-            margin-top: 1.5rem;
-        }
-
-        /* ==========================================
-           BUTTONS
-        ========================================== */
-
-        .btn-primary {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
-            border-radius: 50px;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            margin-top: 1.5rem;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: transparent;
-            color: var(--accent-cyan);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
-            border-radius: 50px;
-            transition: all 0.3s;
-            border: 2px solid var(--accent-cyan);
-            cursor: pointer;
-            margin-top: 1.5rem;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-secondary:hover {
-            background: var(--accent-cyan);
-            color: var(--primary-dark);
-        }
-
-        /* ==========================================
-           LISTS
-        ========================================== */
-
-        .styled-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .styled-list li {
-            padding: 0.8rem 0 0.8rem 2rem;
-            position: relative;
-            color: var(--text-gray);
-            border-left: 2px solid var(--accent-blue);
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-        }
-
-        .styled-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-cyan);
-            font-weight: bold;
-        }
-
-        /* ==========================================
-           REGISTRATION TABS
-        ========================================== */
-
-        .reg-tabs {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .reg-tab-btn {
-            padding: 1rem 2.5rem;
-            background: rgba(59, 130, 246, 0.1);
-            border: 2px solid var(--accent-blue);
-            color: var(--text-light);
-            font-weight: 700;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            letter-spacing: 0.5px;
-        }
-
-        .reg-tab-btn:hover, .reg-tab-btn.active {
-            background: var(--accent-blue);
-            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.4);
-        }
-
-        .reg-tab-content {
-            display: none;
-        }
-
-        .reg-tab-content.active {
-            display: block;
-            animation: fadeIn 0.4s ease;
-        }
-
-        /* ==========================================
-           ALERT & ROUND BOXES
-        ========================================== */
-
-        .alert-box {
-            background: rgb(48, 36, 3);
-            border: 2px solid var(--highlight-yellow);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            position: relative;
-        }
-
-        .alert-box::before {
-            content: '⚠';
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            background: var(--primary-dark);
-            padding: 0 0.5rem;
-            color: var(--highlight-yellow);
-            font-size: 1.5rem;
-        }
-
-        .alert-box strong {
-            color: var(--highlight-yellow);
-        }
-
-        .round-card {
-            background: rgba(59, 130, 246, 0.05);
-            border-left: 4px solid var(--accent-blue);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .round-card h4 {
-            color: var(--accent-cyan);
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-
-        /* ==========================================
-           GALLERY SECTION
-        ========================================== */
-
-        .gallery-container {
-            position: relative;
-            max-width: 900px;
-            margin: 3rem auto;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        }
-
-        .slide {
-            display: none;
-            width: 100%;
-            height: 500px;
-            background: var(--secondary-dark);
-        }
-
-        .slide.active {
-            display: block;
-            animation: slideIn 0.4s ease;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .slide img {
+            left: -100%;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            animation: shimmer 1.5s infinite;
         }
 
-        .slide-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--secondary-dark);
-            font-family: 'Space Mono', monospace;
-            color: var(--text-gray);
-            text-align: center;
-            font-size: 1.1rem;
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
-        .gallery-controls {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 1rem;
-        }
-
-        .gallery-btn {
-            width: 50px;
-            height: 50px;
-            background: rgba(59, 130, 246, 0.8);
-            border: 2px solid var(--accent-blue);
-            border-radius: 50%;
-            color: white;
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            backdrop-filter: blur(10px);
-        }
-
-        .gallery-btn:hover {
-            background: var(--accent-blue);
-            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.5);
-        }
-
-        /* ==========================================
-           FAQ SECTION
-        ========================================== */
-
-        .faq-item {
-            background: rgba(26, 31, 58, 0.5);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .faq-item:hover {
-            background: rgba(26, 31, 58, 0.8);
-            border-color: var(--accent-blue);
-        }
-
-        .faq-question {
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--text-light);
+        .progress-info {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: var(--accent-cyan);
-        }
-
-        .faq-item.active .faq-question::after {
-            content: '−';
-        }
-
-        .faq-answer {
-            display: none;
-            color: var(--text-gray);
-            line-height: 1.7;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        /* ==========================================
-           SOCIAL CARDS
-        ========================================== */
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .social-card {
-            background: linear-gradient(135deg, rgba(26, 31, 58, 0.6) 0%, rgba(10, 14, 39, 0.8) 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .social-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
-        }
-
-        .social-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .social-card p {
-            color: var(--text-gray);
-            margin-bottom: 1.5rem;
-        }
-
-        /* ==========================================
-           FOOTER
-        ========================================== */
-
-        footer {
-            background: rgba(10, 14, 39, 0.98);
-            padding: 3rem 5%;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
+            margin-top: 0.8rem;
             font-size: 0.95rem;
         }
 
-        footer p {
-            margin: 0.5rem 0;
-            color: var(--text-gray);
-        }
-
-        .footer-highlight {
-            color: var(--accent-cyan);
-            font-weight: 600;
+        .progress-percent {
+            color: var(--white);
+            font-weight: 700;
             font-size: 1.1rem;
+            text-shadow: 0 0 10px var(--shadow-blue);
         }
 
-        /* ==========================================
-           RESPONSIVE ADJUSTMENTS
-        ========================================== */
+        .progress-label {
+            color: var(--gray);
+        }
 
-        @media (max-width: 767px) {
-            .hero {
-                padding-top: 0rem;
-                min-height: auto;
+        /* ===========================================
+           ADDITIONAL EFFECTS
+        =========================================== */
+        /* Corner Brackets */
+        .corner-brackets {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            top: 5%;
+            left: 5%;
+            pointer-events: none;
+        }
+
+        .corner {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--neon-blue);
+            opacity: 0.3;
+        }
+
+        .corner.top-left {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner.top-right {
+            top: 0;
+            right: 0;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner.bottom-left {
+            bottom: 0;
+            left: 0;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner.bottom-right {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* ===========================================
+           RESPONSIVE DESIGN
+        =========================================== */
+        @media (max-width: 768px) {
+            .logo-title {
+                font-size: 3rem;
+                letter-spacing: 4px;
             }
 
-            .hero h1 {
-                font-size: 5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.3rem;
-            }
-
-            .hero .tagline {
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .category-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .date-card {
-                padding: 1.5rem 2rem;
-            }
-
-            .date-card .dates {
+            .logo-version {
                 font-size: 1.8rem;
             }
 
-            section {
-                padding: 2rem 1rem;
+            .hexagon-loader {
+                width: 150px;
+                height: 150px;
+                transform: scale(0.8);
             }
 
-            .info-card {
-                padding: 1.5rem;
+            .loading-title {
+                font-size: 1.4rem;
             }
 
-            .reg-tab-btn {
-                padding: 0.75rem 1.5rem;
+            .loading-subtitle {
+                font-size: 1rem;
+            }
+
+            .progress-wrapper {
+                width: 90%;
+            }
+
+            .status-text {
                 font-size: 0.95rem;
             }
-
-            .slide {
-                height: 300px;
-            }
         }
 
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .hero h1 {
-                font-size: 5rem;
+        @media (max-width: 480px) {
+            .logo-title {
+                font-size: 2.2rem;
+                letter-spacing: 2px;
             }
 
-            .category-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .logo-version {
+                font-size: 1.4rem;
             }
-        }
 
-        @media (min-width: 1024px) {
-            .hero h1 {
-                font-size: 5rem;
+            .hexagon-loader {
+                transform: scale(0.6);
             }
 
-            .hero .subtitle {
-                font-size: 2rem;
+            .loading-title {
+                font-size: 1.2rem;
             }
 
-            .hero .tagline {
-                font-size: 1.1rem;
-            }
-
-            .date-card {
-                padding: 2rem 3rem;
-            }
-
-            .date-card .dates {
-                font-size: 2.5rem;
-            }
-        }
-    
-
-        /* ========================================
-           COMPREHENSIVE MOBILE RESPONSIVE DESIGN
-           All elements scale down significantly on mobile
-        ======================================== */
-
-        /* Mobile First - Base styles for small screens */
-        @media (max-width: 767px) {
-
-            /* Alert Bar - Compact */
-            .alert-bar {
-                padding: 0.4rem 0.5rem !important;
-                font-size: 0.7rem !important;
-                line-height: 1.3 !important;
-            }
-
-            /* NFSU Logo - Smaller */
-            .nfsu-logo {
-                top: -23px !important;
-                left: 8px !important;
-                padding: 0.1rem !important;
-                border-radius: 4px !important;
-            }
-
-            .nfsu-logo img {
-                height: 35px !important;
-            }
-
-            /* Navigation - Compact vertical menu */
-            nav {
-                padding: 0.4rem 0.5rem !important;
-                margin-top: 45px !important;
-            }
-
-            nav ul {
-                gap: 0.2rem !important;
-            }
-
-            nav a {
-                padding: 0.5rem 0.75rem !important;
-                font-size: 0.8rem !important;
-                border-radius: 4px !important;
-            }
-
-            /* Hero Section - Significantly reduced */
-            .hero {
-                padding: 1.5rem 0.75rem !important;
-                min-height: auto !important;
-                margin-top: 0 !important;
-            }
-
-            .hero h1 {
-                font-size: 5rem !important;
-                line-height: 1.3 !important;
-                margin-bottom: 0.5rem !important;
-                padding: 0 0.5rem !important;
-            }
-
-            .hero .subtitle {
-                font-size: 0.75rem !important;
-                margin-bottom: 0.75rem !important;
-                padding: 0 0.5rem !important;
-            }
-
-            .hero p {
-                font-size: 0.8rem !important;
-                line-height: 1.4 !important;
-                margin-bottom: 0.75rem !important;
-                padding: 0 0.5rem !important;
-            }
-
-            .hero .quote {
-                font-size: 0.85rem !important;
-                padding: 0.75rem !important;
-                margin: 0.75rem 0.5rem !important;
-            }
-
-            /* Sections - Reduced padding */
-            section {
-                padding: 1.5rem 0.75rem !important;
-            }
-
-            section h2 {
-                font-size: 1.4rem !important;
-                margin-bottom: 0.5rem !important;
-                padding: 0 0.25rem !important;
-            }
-
-            section h3 {
-                font-size: 1.1rem !important;
-                margin-bottom: 0.4rem !important;
-            }
-
-            section h4 {
-                font-size: 0.95rem !important;
-                margin-bottom: 0.3rem !important;
-            }
-
-            section p, section li {
-                font-size: 0.8rem !important;
-                line-height: 1.45 !important;
-                margin-bottom: 0.5rem !important;
-            }
-
-            section ul, section ol {
-                padding-left: 1.2rem !important;
-                margin-bottom: 0.75rem !important;
-            }
-
-            /* Cards - Compact design */
-            .card, .track-card, .category-card {
-                padding: 0.75rem !important;
-                margin-bottom: 0.75rem !important;
-                border-radius: 6px !important;
-            }
-
-            .card h3, .track-card h3, .category-card h3 {
-                font-size: 1rem !important;
-                margin-bottom: 0.4rem !important;
-            }
-
-            .card p, .track-card p, .category-card p {
-                font-size: 0.8rem !important;
-                line-height: 1.4 !important;
-            }
-
-            .card ul li, .track-card ul li {
-                font-size: 0.75rem !important;
-                margin-bottom: 0.3rem !important;
-                padding-left: 0.25rem !important;
-            }
-
-            /* Prize pool and highlights */
-            .prize-pool, .highlight {
-                font-size: 0.8rem !important;
-                padding: 0.4rem 0.6rem !important;
-                margin: 0.5rem 0 !important;
-            }
-
-            /* Buttons - Compact */
-            button, .btn, .cta-button {
-                padding: 0.5rem 1rem !important;
-                font-size: 0.8rem !important;
-                border-radius: 5px !important;
-                margin: 0.5rem 0 !important;
-            }
-
-            /* Grid Layouts - Single column */
-            .card-grid, .cards, .track-grid, .info-grid {
-                grid-template-columns: 1fr !important;
-                gap: 0.75rem !important;
-                padding: 0.5rem !important;
-            }
-
-            /* Timeline - Compact */
-            .timeline {
-                padding: 0 0.5rem !important;
-            }
-
-            .timeline-item {
-                padding: 0.75rem !important;
-                margin-bottom: 0.75rem !important;
-            }
-
-            .timeline-item h3 {
-                font-size: 0.95rem !important;
-            }
-
-            .timeline-item p {
-                font-size: 0.75rem !important;
-            }
-
-            /* Round details - Compact */
-            .round-card {
-                padding: 0.75rem !important;
-                margin-bottom: 0.75rem !important;
-            }
-
-            .round-number {
-                font-size: 0.75rem !important;
-                padding: 0.25rem 0.5rem !important;
-            }
-
-            .round-card h3 {
-                font-size: 1rem !important;
-            }
-
-            .round-card ul li {
-                font-size: 0.75rem !important;
-                padding-left: 0.25rem !important;
-            }
-
-            /* Alert/Warning boxes - Compact */
-            .alert, .warning-box, .info-box {
-                padding: 0.6rem !important;
-                margin: 0.75rem 0 !important;
-                font-size: 0.75rem !important;
-                border-radius: 5px !important;
-            }
-
-            /* Icons - Smaller */
-            .icon, .feature-icon {
-                width: 30px !important;
-                height: 30px !important;
-                font-size: 1rem !important;
-            }
-
-            /* Gallery - Compact */
-            #gallery {
-                padding: 1.5rem 0.5rem !important;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr !important;
-                gap: 0.75rem !important;
-            }
-
-            .gallery-item {
-                border-radius: 6px !important;
-                height: 180px !important;
-            }
-
-            .gallery-overlay {
-                padding: 0.75rem 0.6rem !important;
-            }
-
-            .gallery-overlay h3 {
-                font-size: 0.9rem !important;
-            }
-
-            .gallery-overlay p {
-                font-size: 0.7rem !important;
-            }
-
-            /* FAQ - Compact */
-            .faq-item {
-                padding: 0.75rem !important;
-                margin-bottom: 0.5rem !important;
-            }
-
-            .faq-question {
-                font-size: 0.85rem !important;
-                padding: 0.5rem !important;
-            }
-
-            .faq-answer {
-                font-size: 0.75rem !important;
-                padding: 0.5rem !important;
-            }
-
-            /* Contact info - Compact */
-            .contact-info {
-                padding: 0.75rem !important;
-                font-size: 0.8rem !important;
-            }
-
-            .contact-item {
-                padding: 0.5rem !important;
-                margin-bottom: 0.5rem !important;
-                font-size: 0.8rem !important;
-            }
-
-            /* Footer - Compact */
-            footer {
-                padding: 1rem 0.75rem !important;
-                font-size: 0.75rem !important;
-            }
-
-            footer p {
-                font-size: 0.75rem !important;
-                margin-bottom: 0.4rem !important;
-            }
-
-            /* Tables - Responsive and compact */
-            table {
-                font-size: 0.75rem !important;
-            }
-
-            th, td {
-                padding: 0.4rem 0.3rem !important;
-            }
-
-            /* Form elements - Compact */
-            input, textarea, select {
-                padding: 0.5rem !important;
-                font-size: 0.8rem !important;
-                border-radius: 4px !important;
-            }
-
-            label {
-                font-size: 0.8rem !important;
-                margin-bottom: 0.3rem !important;
-            }
-
-            /* Badges and tags - Smaller */
-            .badge, .tag {
-                padding: 0.2rem 0.5rem !important;
-                font-size: 0.7rem !important;
-                border-radius: 3px !important;
-            }
-
-            /* Statistics/Numbers - Compact */
-            .stat-number {
-                font-size: 1.5rem !important;
-            }
-
-            .stat-label {
-                font-size: 0.7rem !important;
-            }
-
-            /* Container max-width */
-            .container {
-                padding: 0 0.75rem !important;
-                max-width: 100% !important;
-            }
-
-            /* Spacing utilities - Reduced */
-            .mb-1 { margin-bottom: 0.25rem !important; }
-            .mb-2 { margin-bottom: 0.5rem !important; }
-            .mb-3 { margin-bottom: 0.75rem !important; }
-            .mb-4 { margin-bottom: 1rem !important; }
-
-            .mt-1 { margin-top: 0.25rem !important; }
-            .mt-2 { margin-top: 0.5rem !important; }
-            .mt-3 { margin-top: 0.75rem !important; }
-            .mt-4 { margin-top: 1rem !important; }
-
-            .p-1 { padding: 0.25rem !important; }
-            .p-2 { padding: 0.5rem !important; }
-            .p-3 { padding: 0.75rem !important; }
-            .p-4 { padding: 1rem !important; }
-
-            /* Images - Responsive */
-            img {
-                max-width: 100% !important;
-                height: auto !important;
-            }
-
-            /* Video embeds - Responsive */
-            iframe, video {
-                max-width: 100% !important;
-                height: auto !important;
-            }
-        }
-
-        /* Tablet - Medium screens (768px to 1023px) */
-        @media (min-width: 768px) and (max-width: 1023px) {
-
-            .hero h1 {
-                font-size: 5rem !important;
-            }
-
-            section h2 {
-                font-size: 1.75rem !important;
-            }
-
-            section p, section li {
-                font-size: 0.9rem !important;
-            }
-
-            .card-grid, .cards, .track-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1rem !important;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        /* Desktop - Large screens (1024px and above) */
-        @media (min-width: 1024px) {
-
-            .card-grid, .cards, .track-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
-
-            nav ul {
-                flex-direction: row;
-                justify-content: center;
+            .loading-subtitle {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    
-
-
-    <!-- Navigation -->
-    <nav>
-        <!-- NFSU Logo -->
-        <div class="nfsu-logo">
-            <img src="photos/logo.png" alt="NFSU Logo">
+    <!-- Loading Screen -->
+    <div id="loadingScreen">
+        <!-- Background Effects -->
+        <div class="bg-effects">
+            <div class="digital-grid"></div>
+            <div class="glow-orb glow-orb-1"></div>
+            <div class="glow-orb glow-orb-2"></div>
+            <div class="glow-orb glow-orb-3"></div>
+            <div class="scan-line"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
         </div>
-        <button class="nav-toggle" onclick="toggleMobileMenu()"></button>
-        <ul>
-            <li><a href="#" onclick="showTab('home')" class="active">Home</a></li>
-            <li><a href="#" onclick="showTab('registration')">Registration</a></li>
-            <li><a href="#" onclick="showTab('bulletin')">Information Bulletin</a></li>
-            <li><a href="#" onclick="showTab('gallery')">Gallery</a></li>
-            <li><a href="#" onclick="showTab('faq')">FAQ</a></li>
-            <li><a href="#" onclick="showTab('contact')">Contact</a></li>
-        </ul>
-    </nav>
 
-    <!-- HOME TAB -->
-    <div id="home" class="tab-content active">
-            
-        
-    <!-- Hero Section -->
-        <section class="hero">
-            
-            <div class="hero-content">
-                <div class="event-badge">NATIONAL CRIME SCENE INVESTIGATION COMPETITION</div>
-                    <h1>ANVAKRIT 2.0</h1>
-                <div class="subtitle">Unmask the Truth in Bytes</div>
-                <div class="tagline">"The smallest detail is often the key to the biggest truth."</div>
-                
-                <div class="date-card">
-                    <div class="label">EVENT DATE</div>
-                    <div class="dates">11 - 13 FEB 2026</div>
-                </div>
-
-                <div style="margin-top: 2rem;">
-                    <a href="#" onclick="showTab('registration'); return false;" class="btn-primary">REGISTER NOW</a>
-                </div>
-            </div>
-        </section>
-        <!-- Alert Bar -->
-        <div class="alert-bar">
-            🔔 REGISTRATION OPEN - Last Date: 15th December 2025 | Event: 11-13 February 2026
+        <!-- Corner Brackets -->
+        <div class="corner-brackets">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
         </div>
-        <!-- About Section -->
-        <section id="about">
-            <div class="section-header">
-                <h2 class="section-title">About NFSU</h2>
-            </div>
-            <div class="info-card">
-                <p>
-                    The <strong style="color: var(--accent-cyan);">National Forensic Sciences University</strong>, an Institution of National Importance under the Ministry of Home Affairs, Government of India, is the world's first and only University dedicated to forensic sciences and allied disciplines. Established by the Government of India Act, 2020, NFSU encompasses forensics, engineering, technology, life sciences, behavioral science, clinical and forensic psychology, law, pharmacy, cyber security, digital forensics, management, forensic accounting and interdisciplinary areas.
-                </p>
+
+        <!-- Main Content -->
+        <div class="loading-container">
+            <!-- Logo -->
+            <div class="logo-section">
+                <div class="logo-title">ANVAKRIT</div>
+                <div class="logo-version">2.0</div>
+                <div class="logo-underline"></div>
             </div>
 
-            <div class="section-header" style="margin-top: 5rem;">
-                <h2 class="section-title">About The Event</h2>
-            </div>
-            <div class="info-card">
-                <h3>Anvakrit 2.0: Beyond the Crime Scene</h3>
-                <p style="margin-top: 1.5rem;">
-                    After the resounding success of its first edition, Anvakrit 2.0 returns from 11th-13th February 2026 with greater depth, tougher challenges, and a bold new vision. Centered around the theme of <strong style="color: var(--accent-cyan);">Digital Forensics</strong>, the competition invites participants to step Beyond the Crime Scene and test their investigative acumen in dynamic, real-world scenarios.
-                </p>
-                <p style="margin-top: 1.5rem; font-style: italic; color: var(--highlight-yellow);">
-                    "In the world of forensics, complexity is not the exception, it is the rule."
-                </p>
-                <p style="margin-top: 1.5rem;">
-                    A crime scene is never simple. It can unfold across multiple locations, conceal digital trails alongside physical traces, and demand a balance of scientific precision and human judgment. Anvakrit 2.0 is crafted to push participants beyond textbook learning, challenging them to think, act, and adapt like true professionals.
-                </p>
+            <!-- Hexagon Loader -->
+            <div class="hexagon-loader">
+                <div class="hexagon"></div>
+                <div class="orbit-dot"></div>
+                <div class="orbit-dot"></div>
+                <div class="orbit-dot"></div>
+                <div class="orbit-dot"></div>
+                <div class="center-pulse"></div>
             </div>
 
-            <div class="section-header" style="margin-top: 5rem;" id="categories">
-                <h2 class="section-title">Competition Categories</h2>
-            </div>
-            
-            <div class="category-grid">
-                <div class="category-card">
-                    <h3>CATEGORY I</h3>
-                    <div class="target">UG & Higher Secondary Level</div>
-                    <p><strong>For:</strong> Students of Grades 11, 12, and Undergraduate programs</p>
-                    <p>
-                        This track blends interactive puzzles, creative poster presentations, domain-specific workshops and hands-on CSI challenges. Emphasizes foundational learning, teamwork and creativity while providing exposure to real-world forensic practices.
-                    </p>
-                    <p class="prize">Prize Pool: INR 1.2 Lakh (Top 3 Teams)</p>
-                    <a href="#" onclick="showTab('registration'); showRegTab('ug'); return false;" class="btn-secondary">VIEW DETAILS →</a>
+            <!-- Loading Text -->
+            <div class="loading-title">Initializing Forensic System</div>
+            <div class="loading-subtitle">"Unmask the Truth in Bytes"</div>
+
+            <!-- Dynamic Status -->
+            <div class="status-text" id="statusText">Preparing investigation tools...</div>
+
+            <!-- Progress Bar -->
+            <div class="progress-wrapper">
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
                 </div>
-
-                <div class="category-card">
-                    <h3>CATEGORY II</h3>
-                    <div class="target">PG & Professionals</div>
-                    <p><strong>For:</strong> Postgraduate, PhD students, and Professional experts</p>
-                    <p>
-                        Tailored for advanced participants, this track raises the bar with multi-scene investigations, digital forensics, psychological evidence collection, mini-lab testing, chain of custody simulations, and courtroom presentations.
-                    </p>
-                    <p class="prize">Prize Pool: INR 1.2 Lakh (Top 2 Teams)</p>
-                    <a href="#" onclick="showTab('registration'); showRegTab('pg'); return false;" class="btn-secondary">VIEW DETAILS →</a>
+                <div class="progress-info">
+                    <span class="progress-label">Loading</span>
+                    <span class="progress-percent" id="progressPercent">0%</span>
                 </div>
             </div>
-            <!--
-            <div class="info-card" style="margin-top: 4rem;" id="rules">
-                <h3>Competition Objectives</h3>
-                <ul class="styled-list" style="margin-top: 1.5rem;">
-                    <li>Enhance knowledge on crime scene management and modern forensic techniques</li>
-                    <li>Improve evidence handling: collection, preservation, and documentation</li>
-                    <li>Promote multidisciplinary collaboration among forensic experts and legal professionals</li>
-                    <li>Showcase emerging technologies: digital forensics and 3D crime scene reconstruction</li>
-                    <li>Strengthen legal and ethical considerations in investigations</li>
-                    <li>Build teamwork, leadership, and decision-making skills</li>
-                </ul>
-            </div>
-
-            <div class="info-card" id="eligibility">
-                <h3>General Eligibility</h3>
-                <ul class="styled-list" style="margin-top: 1.5rem;">
-                    <li>Open to students and professionals across India</li>
-                    <li>Category I: Grades 11, 12, and Undergraduate students (all streams)</li>
-                    <li>Category II: Postgraduate, PhD students, and professionals in forensic sciences and allied fields</li>
-                    <li>Valid institutional/school ID card mandatory</li>
-                    <li>Team-based participation with specific team sizes per category</li>
-                </ul>
-            </div>
-            -->
-        </section>
+        </div>
     </div>
 
-    <!-- REGISTRATION TAB -->
-    <div id="registration" class="tab-content">
-        <section>
-            <div class="section-header">
-                <h2 class="section-title">Registration Portal</h2>
-                <p class="section-subtitle">Choose your category and register for Anvakrit 2.0</p>
-            </div>
-            
-            <div class="reg-tabs">
-                <button class="reg-tab-btn active" onclick="showRegTab('ug')">UG LEVEL</button>
-                <button class="reg-tab-btn" onclick="showRegTab('pg')">PG LEVEL</button>
-            </div>
-
-            <!-- UG Registration -->
-            <div id="ug" class="reg-tab-content active">
-                <div class="info-card">
-                    <h3>CATEGORY I: UG & Higher Secondary Registration</h3>
-                    
-                    <div class="alert-box" style="margin-top: 2rem;">
-                        <p><strong>ALERT:</strong> Competition will have surprise elements throughout the duration of the event starting right from registrations. The participants shall be tested regarding their awareness and vulnerability pertaining to the current trends of crime.</p>
-                    </div>
-
-                    <h4 style="color: var(--accent-cyan); margin-top: 2rem; font-size: 1.5rem;">Competition Rounds</h4>
-                    
-                    <div class="round-card">
-                        <h4>ROUND 1: Case File Investigation</h4>
-                        <p style="color: var(--text-gray);">
-                            The journey begins with a case file (online/offline) to test investigative, critical thinking and deductive skills. Teams must respond to questions within the given time limit.
-                        </p>
-                    </div>
-
-                    <div class="round-card">
-                        <h4>ROUND 2: Poster Presentation of Findings</h4>
-                        <p style="color: var(--text-gray);">
-                            Online poster presentation showcasing case file findings and methods used. Most creative posters with accurate solutions advance to Round 3. Top teams based on cumulative scores of Rounds 1 & 2 qualify for the offline round.
-                        </p>
-                    </div>
-
-                    <div class="round-card">
-                        <h4>ROUND 3: On-Campus Crime Scene</h4>
-                        <p style="color: var(--text-gray);">
-                            Top teams advance to offline round at NFSU Delhi Campus for:
-                        </p>
-                        <ul class="styled-list" style="margin-top: 1rem;">
-                            <li>Domain-specific sessions conducted by forensic experts</li>
-                            <li>Lab visits of state-of-the-art facilities</li>
-                            <li>Immersive crime scene investigation challenge integrating all domains</li>
-                            <li>Focus on observation, teamwork, and practical application</li>
-                        </ul>
-                    </div>
-
-                    <h4 style="color: var(--accent-cyan); margin-top: 2rem; font-size: 1.5rem;">Registration Details</h4>
-                    <ul class="styled-list" style="margin-top: 1rem;">
-                        <li><strong>Team Size:</strong> 4 members (self-formed teams)</li>
-                        <li><strong>Registration Cap:</strong> 300 participants (first-come, first-serve)</li>
-                        <li><strong>Registration Fee:</strong> ₹1000 per head (each member registers individually)</li>
-                        <li><strong>Last Date:</strong> 15th December 2025</li>
-                    </ul>
-
-                    <div class="alert-box" style="margin: 2rem 0;">
-                        <p><strong>FEE INCLUDES:</strong> Lunch, Dinner, Registration Kits, Expert Workshops, Lab Visits, Certificate of Participation</p>
-                    </div>
-
-                    <h4 style="color: var(--accent-cyan); margin-top: 2rem; font-size: 1.5rem;">Accommodation</h4>
-                    <p style="color: var(--text-gray); margin-top: 1rem;">
-                        <strong>On-Campus Accommodation:</strong> ₹500 per day (includes breakfast)<br>
-                        Accommodation details will be provided post-registration (location, facilities, check-in/out timings)
-                    </p>
-                    <p style="color: var(--text-gray); margin-top: 1rem;">
-                        <strong>Partner Hotels:</strong> MoU hotel information will be shared after registration confirmation.
-                    </p>
-
-                    <h4 style="color: var(--accent-cyan); margin-top: 2rem; font-size: 1.5rem;">Important Notes</h4>
-                    <ul class="styled-list">
-                        <li>Each member must register individually</li>
-                        <li>No changes in team composition after registration</li>
-                        <li>Valid ID card mandatory during offline rounds</li>
-                        <li>Failure to adhere to procedure treated as withdrawal - no refunds</li>
-                    </ul>
-
-                    <div style="text-align: center; margin-top: 3rem;">
-                        <a href="https://unstop.com" target="_blank" class="btn-primary">REGISTER ON UNSTOP →</a>
-                        <p style="margin-top: 1rem; color: var(--text-gray); font-size: 0.95rem;">
-                            Official UG registration platform
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PG Registration -->
-            <div id="pg" class="reg-tab-content">
-                <div class="info-card">
-                    <h3>CATEGORY II: PG & Professionals Registration</h3>
-                    
-                    <div class="alert-box" style="margin-top: 2rem;">
-                        <p><strong>CLASSIFIED:</strong> Throughout the competition, from the day registration starts, various surprise puzzles and clues shall be shared. Participants with keen analytical and investigative eyes will have the opportunity to gain an advantage for whichever team they will be a part of.</p>
-                    </div>
-
-                    <h4 style="color: var(--accent-cyan); margin-top: 2rem; font-size: 1.5rem;">Competition Rounds</h4>
-                    
-                    <div class="round-card">
-                        <h4>ROUND 1: Case File Investigation</h4>
-                        <p style="color: var(--text-gray);">
-                            Offline case file to test investigative, critical thinking and deductive skills. Teams must respond accurately within the time limit. Only top teams who responded correctly advance on first-come, first-serve basis.
-                        </p>
-                    </div>
-
-                    <div class="round-card">
-                        <h4>ROUND 2: On-Campus Crime Scene</h4>
-                        <p style="color: var(--text-gray);">
-                            Multi-layered, domain integrated immersive crime scene investigation with:
-                        </p>
-                        <ul class="styled-list" style="margin-top: 1rem;">
-                            <li>Criminological awareness and observation skills</li>
-                            <li>Deductive reasoning and teamwork</li>
-                            <li>Applied forensic skills under pressure</li>
-                            <li>Prioritizing perishable evidence (footprints, dust, ice, smudged prints)</li>
-                            <li>Hands-on forensic engagement: lab tests for blood, drugs, fingerprints</li>
-                            <li>Interdisciplinary clues: toxicology, ballistics, entomology, forensic psychology</li>
-                        </ul>
-                    </div>
-
-                    <div class="round-card">
-                        <h4>ROUND 3: Mock Courtroom Presentation</h4>
-                        <p style="color: var(--text-gray);">
-                            Face a live jury in a courtroom setting. Present findings, evidence collection process, and defend conclusions. Tests legal knowledge and presence of mind.
-                        </p>
-                    </div>
-
-                    <h4 style="color: var(--accent-cyan); margin-top: 2rem; font-size: 1.5rem;">Registration Details</h4>
-                    <ul class="styled-list" style="margin-top: 1rem;">
-                        <li><strong>Team Size:</strong> 5 members (individual or group registration)</li>
-                        <li><strong>Registration Cap:</strong> 200 participants (first-come, first-serve)</li>
-                        <li><strong>Registration Fee:</strong> ₹2000 per head (each member registers individually)</li>
-                        <li><strong>Last Date:</strong> 15th December 2025</li>
-                    </ul>
-
-                    <div class="alert-box" style="margin: 2rem 0;">
-                        <p><strong>FEE INCLUDES:</strong> Lunch, Dinner, Registration Kits, Expert Workshops, Lab Equipment Access, Certificate of Participation</p>
-                    </div>
-
-                    <h4 style="color: var(--accent-cyan); margin-top: 2rem; font-size: 1.5rem;">Team Formation</h4>
-                    <ul class="styled-list">
-                        <li><strong>Individual Registration:</strong> Organizing committee forms teams of 5 on-campus to ensure diversity</li>
-                        <li><strong>Group Registration:</strong> Self-formed teams of exactly 5 members</li>
-                        <li>No reshuffling after allotment</li>
-                    </ul>
-
-                    <h4 style="color: var(--accent-cyan); margin-top: 2rem; font-size: 1.5rem;">Accommodation</h4>
-                    <p style="color: var(--text-gray); margin-top: 1rem;">
-                        <strong>On-Campus Accommodation:</strong> ₹500 per day (includes breakfast)<br>
-                        Accommodation details will be provided post-registration (location, facilities, check-in/out timings)
-                    </p>
-                    <p style="color: var(--text-gray); margin-top: 1rem;">
-                        <strong>Partner Hotels:</strong> MoU hotel information will be shared after registration confirmation.
-                    </p>
-
-                    <h4 style="color: var(--accent-cyan); margin-top: 2rem; font-size: 1.5rem;">Important Notes</h4>
-                    <ul class="styled-list">
-                        <li>Each member must register individually</li>
-                        <li>No changes in team names or roles after registration</li>
-                        <li>No cancellation or refund once confirmed</li>
-                        <li>Valid ID card mandatory at reporting</li>
-                        <li>Eliminated participants may volunteer and receive Guest Volunteer Certificates</li>
-                    </ul>
-
-                    <div style="text-align: center; margin-top: 3rem;">
-                        <a href="https://forms.google.com" target="_blank" class="btn-primary">REGISTER VIA GOOGLE FORM →</a>
-                        <p style="margin-top: 1rem; color: var(--text-gray); font-size: 0.95rem;">
-                            Official PG registration form
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--
-            <div class="info-card" style="margin-top: 3rem;">
-                <h3>Code of Conduct</h3>
-                <ul class="styled-list" style="margin-top: 1.5rem;">
-                    <li>Strictly follow organizing committee instructions</li>
-                    <li>Any malpractice leads to immediate disqualification</li>
-                    <li>No tampering with evidence or disturbing other teams</li>
-                    <li>No unauthorized tools or equipment</li>
-                    <li>Respectful conduct towards jury, organizers, and participants is mandatory</li>
-                </ul>
-            </div>
-            -->
-        </section>
-    </div>
-
-    <!-- INFORMATION BULLETIN TAB -->
-    <div id="bulletin" class="tab-content">
-        <section>
-            <div class="section-header">
-                <h2 class="section-title">Information Bulletin</h2>
-                <p class="section-subtitle">Stay updated with latest announcements and competition updates</p>
-            </div>
-
-            <div class="alert-box" style="margin-top: 3rem 0;">
-                <p style="color: var(--text-gray)"><strong>IMPORTANT:</strong> Keep checking this bulletin regularly for updates on case files, surprise challenges, and important announcements. More updates will be posted as the event approaches.</p>
-            </div>
-
-            <div class="info-card">
-                <h3 style="display: flex; justify-content: space-between; align-items: center;">
-                    <span>Registration Open</span>
-                    <span style="font-size: 0.9rem; color: var(--text-gray);">27 Oct 2025</span>
-                </h3>
-                <p style="margin-top: 1rem;">
-                    Registration for Anvakrit 2.0 is now open! Secure your spot before 15th December 2025. Limited seats available on first-come, first-serve basis.
-                </p>
-            </div>
-
-            <div class="info-card">
-                <h3 style="display: flex; justify-content: space-between; align-items: center;">
-                    <span>Event Dates Announced</span>
-                    <span style="font-size: 0.9rem; color: var(--text-gray);">20 Oct 2025</span>
-                </h3>
-                <p style="margin-top: 1rem;">
-                    Mark your calendars! Anvakrit 2.0 will be held from 11th-13th February 2026 at NFSU Delhi Campus.
-                </p>
-            </div>
-
-            <div class="info-card">
-                <h3 style="display: flex; justify-content: space-between; align-items: center;">
-                    <span>Theme Revealed: Unmask the Truth in Bytes</span>
-                    <span style="font-size: 0.9rem; color: var(--text-gray);">15 Oct 2025</span>
-                </h3>
-                <p style="margin-top: 1rem;">
-                    This year's theme focuses on Digital Forensics. Participants will navigate complex crime scenes involving both physical and digital evidence.
-                </p>
-            </div>
-
-            
-        </section>
-    </div>
-
-    <!-- GALLERY TAB -->
-    <div id="gallery" class="tab-content">
-        <section>
-            <div class="section-header">
-                <h2 class="section-title">Event Gallery</h2>
-                <p class="section-subtitle">Glimpses from Anvakrit 1.0</p>
-            </div>
-
-            <div class="gallery-container">
-                <div class="slide active">
-                    <img src="photos/gallery-1.jpg" alt="Anvakrit 2024 - Photo 1" >
-                    <div class="slide-placeholder"></div>
-                </div>
-
-                <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-2.jpg" alt="Anvakrit 2024 - Photo 2" >
-                       
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-3.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-4.jpg" alt="Anvakrit 2024 - Photo 2" >
-                       
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                       
-                     <img src="photos/gallery-5.jpg" alt="Anvakrit 2024 - Photo 2" >
-                       
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-6.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-7.jpg" alt="Anvakrit 2024 - Photo 2" >
-                       
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-8.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-9.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-10.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-11.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-12.jpg" alt="Anvakrit 2024 - Photo 2" >
-                       
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                       
-                     <img src="photos/gallery-13.jpg" alt="Anvakrit 2024 - Photo 2" >
-                       
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-14.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-15.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                       
-                     <img src="photos/gallery-16.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                      
-                     <img src="photos/gallery-17.jpg" alt="Anvakrit 2024 - Photo 2" >
-                
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-18.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-                 <div class="slide">
-                    <div class="slide-placeholder">
-                        
-                     <img src="photos/gallery-19.jpg" alt="Anvakrit 2024 - Photo 2" >
-                      
-                    </div>
-                </div>
-
-                <div class="gallery-controls">
-                    <button class="gallery-btn" onclick="changeSlide(-1)">‹</button>
-                    <button class="gallery-btn" onclick="changeSlide(1)">›</button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- FAQ TAB -->
-    <div id="faq" class="tab-content">
-        <section>
-            <div class="section-header">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">Find answers to common queries</p>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="faq-question">What is Anvakrit 2.0?</div>
-                <div class="faq-answer">
-                    Anvakrit 2.0 is a National Crime Scene Investigation Competition organized by NFSU. It's a three-day event (11th-13th February 2026) focused on Digital Forensics, offering participants hands-on experience in crime scene investigation, evidence collection, forensic analysis, and courtroom presentation.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="faq-question">Do I need prior forensic knowledge to participate?</div>
-                <div class="faq-answer">
-                    For Category I (UG/Higher Secondary), no prior forensic knowledge is required. Curiosity, creativity, and teamwork are key. For Category II (PG/Professionals), basic understanding of forensic sciences or related fields is recommended.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="faq-question">Can I register individually?</div>
-                <div class="faq-answer">
-                    Category I requires team registration (4 members, self-formed). Category II allows both individual registration (teams formed by organizers on-campus) and group registration (self-formed teams of 5 members).
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="faq-question">What does the registration fee include?</div>
-                <div class="faq-answer">
-                    The registration fee includes lunch, dinner, registration kits, expert workshops, lab visits, and certificate of participation. Accommodation (with breakfast) is optional at ₹500 per day.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="faq-question">Can I change my team after registration?</div>
-                <div class="faq-answer">
-                    No. Once registration is completed, no changes in team names, composition, or roles will be permitted. This policy ensures fairness and proper event planning.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="faq-question">What happens if my team is eliminated?</div>
-                <div class="faq-answer">
-                    For Category II, eliminated participants may choose to volunteer for the rest of the competition duration and will receive Guest Volunteer Certificates. This is a great opportunity to observe and learn from advanced investigations.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="faq-question">What materials will be provided?</div>
-                <div class="faq-answer">
-                    The organizing committee will provide gloves, masks, evidence collection kits, stationery, lab equipment, and legal documents (if needed). Participants should bring their ID cards, personal stationery, and laptops if required.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="faq-question">Is accommodation mandatory?</div>
-                <div class="faq-answer">
-                    No, accommodation is optional. If you choose to stay on campus, the charge is ₹500 per day, which includes breakfast. Accommodation details and partner hotel information will be provided post-registration.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="faq-question">What is the prize money?</div>
-                <div class="faq-answer">
-                    Category I: Top 3 teams share a prize pool of INR 1.2 lakh. Category II: Top 2 teams share a prize pool of INR 1.2 lakh. All participants receive certificates of participation.
-                </div>
-            </div>
-
-            <div class="faq-item" onclick="toggleFAQ(this)">
-                <div class="faq-question">What are the surprise elements mentioned?</div>
-                <div class="faq-answer">
-                    Throughout the competition, starting from registration, participants will encounter surprise puzzles, clues, and challenges that test awareness, vulnerability assessment, and knowledge of current crime trends. Keen observation from the start gives you an advantage!
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- CONTACT TAB -->
-    <div id="contact" class="tab-content">
-        <section>
-            <div class="section-header">
-                <h2 class="section-title">Connect With Us</h2>
-                <p class="section-subtitle">Reach out for queries and updates</p>
-            </div>
-
-            <div class="social-grid">
-                <div class="social-card">
-                    <h3>UNSTOP</h3>
-                    <p>Official registration platform for Anvakrit 2.0</p>
-                    <a href="https://unstop.com" target="_blank" class="btn-secondary">VISIT UNSTOP</a>
-                </div>
-
-                <div class="social-card">
-                    <h3>INSTAGRAM</h3>
-                    <p>Follow us for updates, behind-the-scenes, and announcements</p>
-                    <a href="https://www.instagram.com/anvakrit.nfsudelhi?igsh=YzBiOWNnaXc1OHF5" target="_blank" class="btn-secondary">FOLLOW US</a>
-                </div>
-
-                <div class="social-card">
-                    <h3>NFSU WEBSITE</h3>
-                    <p>Learn more about National Forensic Sciences University</p>
-                    <a href="https://nfsu.ac.in" target="_blank" class="btn-secondary">VISIT WEBSITE</a>
-                </div>
-            </div>
-
-            <div class="info-card" style="margin-top: 4rem;">
-                <h3>Contact Information</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div>
-                        <h4 style="color: var(--accent-cyan); margin-bottom: 0.8rem;">Email</h4>
-                        <p style="color: var(--text-gray);">
-                            anvakrit@nfsu.ac.in
-                        </p>
-                    </div>
-                    <div>
-                        <h4 style="color: var(--accent-cyan); margin-bottom: 0.8rem;">Phone (Live Support)</h4>
-                        <p style="color: var(--text-gray);">
-                            +91-90990 17566<br>
-                            +91-97452 39961<br>
-                            +91-96503 96844<br>
-                            +91-96622 02506
-                        </p>
-                    </div>
-                    <div>
-                        <h4 style="color: var(--accent-cyan); margin-bottom: 0.8rem;">Location</h4>
-                        <p style="color: var(--text-gray);">
-                            NFSU Delhi Campus<br>
-                            New Delhi, India
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 National Forensic Sciences University. All Rights Reserved.</p>
-        <p class="footer-highlight" style="margin: 1rem 0;">
-            ANVAKRIT 2.0 - UNMASK THE TRUTH IN BYTES
-        </p>
-        <p style="font-style: italic; color: var(--highlight-yellow);">
-            "In the world of forensics, complexity is not the exception, it is the rule."
-        </p>
-    </footer>
-
+    <!-- JavaScript -->
     <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const navUl = document.querySelector('nav ul');
-            const navToggle = document.querySelector('.nav-toggle');
+        // Progress tracking
+        let progress = 0;
+        const progressBar = document.getElementById('progressBar');
+        const progressPercent = document.getElementById('progressPercent');
+        const statusText = document.getElementById('statusText');
+        const loadingScreen = document.getElementById('loadingScreen');
 
-            navUl.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        }
+        // Status messages
+        const statusMessages = [
+            'Scanning digital evidence...',
+            'Analyzing byte patterns...',
+            'Loading forensic tools...',
+            'Initializing security protocols...',
+            'Decrypting case files...',
+            'Establishing secure connection...',
+            'Preparing investigation workspace...',
+            'Loading crime scene database...',
+            'Calibrating analysis engines...',
+            'System ready for investigation...'
+        ];
 
-        // Tab Navigation
-        function showTab(tabName) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
+        let messageIndex = 0;
 
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => link.classList.remove('active'));
-
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-
-            // Close mobile menu when navigating to a tab
-            const navUl = document.querySelector('nav ul');
-            const navToggle = document.querySelector('.nav-toggle');
-            navUl.classList.remove('active');
-            navToggle.classList.remove('active');
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Registration Tabs
-        function showRegTab(tabName) {
-            const regTabs = document.querySelectorAll('.reg-tab-content');
-            regTabs.forEach(tab => tab.classList.remove('active'));
-
-            const buttons = document.querySelectorAll('.reg-tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            document.getElementById(tabName).classList.add('active');
-            
-            buttons.forEach(btn => {
-                if ((tabName === 'ug' && btn.textContent.includes('UG')) ||
-                    (tabName === 'pg' && btn.textContent.includes('PG'))) {
-                    btn.classList.add('active');
-                }
-            });
-        }
-
-        // Gallery Slideshow
-        let currentSlide = 0;
-
-        function changeSlide(direction) {
-            const slides = document.querySelectorAll('.slide');
-            slides[currentSlide].classList.remove('active');
-
-            currentSlide += direction;
-
-            if (currentSlide >= slides.length) {
-                currentSlide = 0;
-            } else if (currentSlide < 0) {
-                currentSlide = slides.length - 1;
+        // Update status message
+        const messageInterval = setInterval(() => {
+            if (messageIndex < statusMessages.length) {
+                statusText.textContent = statusMessages[messageIndex];
+                messageIndex++;
             }
+        }, 400);
 
-            slides[currentSlide].classList.add('active');
-        }
+        // Progress animation
+        const progressInterval = setInterval(() => {
+            if (progress < 100) {
+                progress += Math.random() * 8 + 2;
+                if (progress > 100) progress = 100;
 
-        // Auto-advance slideshow
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
+                progressBar.style.width = progress + '%';
+                progressPercent.textContent = Math.floor(progress) + '%';
+            } else {
+                clearInterval(progressInterval);
+                clearInterval(messageInterval);
 
-        // FAQ Toggle
-        function toggleFAQ(element) {
-            element.classList.toggle('active');
-        }
+                statusText.textContent = 'Investigation system ready!';
+
+                // Hide loading screen
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+
+                    // Redirect to main page
+                    setTimeout(() => {
+                        window.location.href = 'main.html'; // Change to your main page
+                        // Or if integrated: document.body.style.overflow = 'auto';
+                    }, 1000);
+                }, 800);
+            }
+        }, 250);
     </script>
 </body>
 </html>
